@@ -1,0 +1,81 @@
+{
+	"geode": "5.10.1",
+	"gd": {
+		"win": "2.2081"
+	},
+	"id": "yourname.smoothdash",
+	"name": "SmoothDash",
+	"version": "v1.1.0",
+	"developer": "YourName",
+	"description": "Unlocks high FPS and reduces stutter and frame-time spikes.",
+	"tags": [
+		"performance"
+	],
+	"settings": {
+		"fps-unlock": {
+			"name": "Unlock FPS",
+			"description": "Overrides GD's frame cap with the Target FPS below. Turn <cy>VSync off</c> in GD's graphics settings, or your monitor's refresh rate will still cap you.",
+			"type": "bool",
+			"default": true
+		},
+		"target-fps": {
+			"name": "Target FPS",
+			"description": "Frame cap used when Unlock FPS is on. Set to 0 for uncapped. Default 120 is tuned for a Ryzen 5 7520U / Radeon 610M laptop: high enough to cut input lag, low enough that the iGPU doesn't overheat and throttle. Try 144 or 240 if your screen is faster.",
+			"type": "int",
+			"default": 120,
+			"min": 0,
+			"max": 1000,
+			"control": {
+				"arrows": true,
+				"arrow-step": 30,
+				"slider": false,
+				"input": true
+			}
+		},
+		"timer-resolution": {
+			"name": "High-precision timer",
+			"description": "Asks Windows for a 1 ms timer so frames are spaced evenly. This is the biggest fix for micro-stutter at high FPS.",
+			"type": "bool",
+			"default": true
+		},
+		"no-power-throttling": {
+			"name": "Disable power throttling",
+			"description": "Stops Windows from putting GD on slow 'efficiency' CPU cores or lowering its clock speed, which causes random lag spikes on laptops and newer Intel CPUs.",
+			"type": "bool",
+			"default": true
+		},
+		"high-priority": {
+			"name": "Above-normal priority",
+			"description": "Gives GD a higher CPU priority than background apps. Can help if things like Discord or browsers cause spikes.",
+			"type": "bool",
+			"default": true
+		},
+		"particle-percent": {
+			"name": "Particle amount (%)",
+			"description": "Caps how many particles each emitter can have. Lower this on heavy levels if they lag. 100 = unchanged.",
+			"type": "int",
+			"default": 50,
+			"min": 10,
+			"max": 100,
+			"control": {
+				"arrows": true,
+				"arrow-step": 10,
+				"slider": true,
+				"slider-step": 10,
+				"input": true
+			}
+		},
+		"force-low-detail": {
+			"name": "Force Low Detail Mode",
+			"description": "Turns on Low Detail Mode for every level that supports it (removes glow and extra decoration). Huge FPS boost on integrated graphics.",
+			"type": "bool",
+			"default": true
+		},
+		"disable-shake": {
+			"name": "Disable shake",
+			"description": "Turns off screen shake effects in levels. Shake forces extra redraws that cause spikes on weak GPUs.",
+			"type": "bool",
+			"default": false
+		}
+	}
+}
